@@ -73,7 +73,6 @@ public class PaymentForm {
         btnPay.setBounds(235, 145, 108, 23);
         frame.getContentPane().add(btnPay);
         
-        // "Ödeme Yap" butonuna tıklanma olayını işleme
         btnPay.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String paymentMethod = (String) comboBox.getSelectedItem();
@@ -90,3 +89,4 @@ public class PaymentForm {
         });
     }
 }
+
