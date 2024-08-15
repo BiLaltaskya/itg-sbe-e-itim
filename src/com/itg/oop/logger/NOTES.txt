@@ -1,0 +1,46 @@
+//12.08.24 15:00-18:00 PPT Slide 1-13
+https://www.digitalocean.com/community/tutorials/java-singleton-design-pattern-best-practices-examples
+https://gokhana.medium.com/solid-nedir-solid-yaz%C4%B1l%C4%B1m-prensipleri-nelerdir-40fb9450408e
+
+
+https://codeshare.io/itg
+https://codeshare.io/itgnotes
+
+TODO mention: 	//public, protected, private, abstract, static, final, synchronized, native & strictfp are permitted
+
+
+/*	ALPK:			String methodName="kaydet";
+				try {
+					Class<?> clazz = Class.forName("com.itg.oop."+secilenLogTipi);
+					Object obj = clazz.newInstance();
+					Class[] paramStringa = new Class[1];
+					paramStringa[0]= String.class;
+
+				
+					Method m= clazz.getMethod(methodName, paramStringa);
+					Object o= m.invoke(obj, txtDurum.getText());
+					String gelenMesaj= o.toString();
+					lblSonuc.setText(gelenMesaj);
+					System.out.println("MEtohddan gelen deger:"+gelenMesaj);
+				}catch(Exception er){
+					er.getMessage().toString();
+				}
+*/
+/* INconven.way:
+				if(secilenLogTipi=="DbLog"){
+					DbLog dbLog = new DbLog();
+					//durum = txtDurum.getText();
+					dbLog.kaydet(txtDurum.getText());
+				}
+				if(secilenLogTipi=="XmlLog"){
+					XmlLog xmlLog = new XmlLog();
+					//durum = txtDurum.getText();
+					xmlLog.kaydet(txtDurum.getText());
+					
+				}
+				if(secilenLogTipi=="JsonLog"){
+					JsonLog jsonLog = new JsonLog();
+					//durum = txtDurum.getText();
+					jsonLog.kaydet(txtDurum.getText());
+				}
+*/	

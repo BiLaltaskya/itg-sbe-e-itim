@@ -1,0 +1,88 @@
+package com.itg.oop.assignments.assignment120824.perihank;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JTextField;
+
+import com.itg.oop.logger.LoggerImpl;
+
+import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class PaymentForm {
+
+	private JFrame frame;
+	private JTextField textField;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PaymentForm window = new PaymentForm();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public PaymentForm() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 450, 300);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Ödeme Yöntemi : ");
+		lblNewLabel.setBounds(66, 32, 116, 14);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Tutar : ");
+		lblNewLabel_1.setBounds(66, 74, 46, 14);
+		frame.getContentPane().add(lblNewLabel_1);
+		
+		JButton btnNewButton = new JButton("Ödeme Yap");
+		btnNewButton.setBounds(235, 145, 108, 23);
+		frame.getContentPane().add(btnNewButton);
+		
+		JLabel lblNewLabel_2 = new JLabel("Sonuç : ");
+		lblNewLabel_2.setBounds(53, 220, 315, 14);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Seçiniz", "CreditCard", "MailOrder", "GooglePay"}));
+		comboBox.setBounds(235, 28, 108, 22);
+		frame.getContentPane().add(comboBox);
+		
+		textField = new JTextField();
+		textField.setBounds(235, 71, 108, 20);
+		frame.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String secilenLogTipi = comboBox.getSelectedItem().toString();
+				
+				PaymentImpl loggerImpl = new PaymentImpl(secilenLogTipi);
+				loggerImpl.pay(Double.parseDouble(textField.getText()));
+			}
+		});
+	}
+
+}
